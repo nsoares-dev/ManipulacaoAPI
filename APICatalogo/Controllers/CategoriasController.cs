@@ -2,6 +2,7 @@
 using APICatalogo.Data;
 using APICatalogo.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace APICatalogo.Controllers
@@ -20,6 +21,7 @@ namespace APICatalogo.Controllers
 
         //GET
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategoria()
         {
             return await _context.Categoria.ToListAsync();
